@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Adopt</string>
+    <string name="facebook_app_id">448156138985683</string>
+    <string name="fb_login_protocol_scheme">fb448156138985683</string>
+</resources>
