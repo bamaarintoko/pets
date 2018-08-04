@@ -17,7 +17,7 @@ import {navigationPropConstructor} from '../Utils/Redux'
 // import ScreenAuth from '../Screen/Auth/screen-auth'
 import SplashScreen from '../Screen/Splash/screen-splash'
 // import ScreenIntro from '../Screen/Splash/screen-intro'
-// import ScreenRegister from '../Screen/Auth/screen-register'
+import ScreenRegister from '../Screen/Auth/screen-register'
 // import ScreenForgetPassword from '../Screen/Auth/screen-forget-password'
 // import ScreenCreateReserve from '../Screen/CreateReserve/screen-create-reserve'
 import {connect} from "react-redux";
@@ -35,7 +35,7 @@ export const AppNavigator = createStackNavigator({
     // Auth: {screen: ScreenAuth},
     Splash: {screen: SplashScreen},
     // Intro: {screen: ScreenIntro},
-    // Register: {screen: ScreenRegister},
+    Register: {screen: ScreenRegister},
     // CreateReserve: {screen: ScreenCreateReserve},
     // ForgetPassword: {screen: ScreenForgetPassword},
     // MyDetailReserve: {screen: ScreenMyReserveDetail},

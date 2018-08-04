@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {
-    Platform,
     StyleSheet,
     Text,
     View,
     Image,
-    Dimensions, Keyboard
+    Dimensions, Keyboard, TouchableOpacity
 } from 'react-native';
 import {FBLogin, FBLoginManager} from 'react-native-facebook-login';
-import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
-import {Item, Input, Label, Container, Content, Button} from "native-base";
+import {GoogleSignin} from 'react-native-google-signin';
+import {Item, Input, Container, Button} from "native-base";
 import Icon from "react-native-vector-icons/FontAwesome";
 import {normalize, normalizeFont} from "../../Utils/func";
 
@@ -205,7 +204,7 @@ class SplashScreen extends Component {
                         <View style={{width: '80%'}}>
                             <View>
                                 <Item regular style={{borderColor: 'white', borderWidth: 0, height: 20}}>
-                                    <Input style={{fontSize:normalizeFont(3)}} placeholder={'email'}/>
+                                    <Input style={{fontSize: normalizeFont(3)}} placeholder={'email'}/>
                                 </Item>
                             </View>
                             <View style={styles.separatorContainer}>
@@ -213,7 +212,7 @@ class SplashScreen extends Component {
                             </View>
                             <View>
                                 <Item regular style={{borderColor: 'white', height: 20}}>
-                                    <Input style={{fontSize:normalizeFont(3)}} placeholder={'password'}/>
+                                    <Input style={{fontSize: normalizeFont(3)}} placeholder={'password'}/>
                                 </Item>
                             </View>
                         </View>
@@ -225,10 +224,15 @@ class SplashScreen extends Component {
                     </View>
                     <View style={{width: '100%', flexDirection: 'row', padding: 10}}>
                         <View style={{width: '50%'}}>
-                            <Text>Sign Up</Text>
+                            <TouchableOpacity style={{paddingTop: 10, paddingBottom: 10}}
+                                              onPress={() => this.props.navigation.navigate('Register')}>
+                                <Text>Sign Up</Text>
+                            </TouchableOpacity>
                         </View>
                         <View style={{width: '50%'}}>
-                            <Text style={{alignSelf: 'flex-end'}}>Forgot Password</Text>
+                            <TouchableOpacity style={{paddingTop: 10, paddingBottom: 10}}>
+                                <Text style={{alignSelf: 'flex-end'}}>Forgot Password</Text>
+                            </TouchableOpacity>
                         </View>
                     </View>
                     {
@@ -241,14 +245,16 @@ class SplashScreen extends Component {
                                 <View style={styles.separatorLine}/>
                             </View>
                             <View style={{flexDirection: 'row', marginTop: 10, alignItems: 'center', width: '100%'}}>
-                                <Button full info style={{width: '48%', backgroundColor: '#3B5998', height:normalize(40)}}
+                                <Button full info
+                                        style={{width: '48%', backgroundColor: '#3B5998', height: normalize(40)}}
                                         onPress={this.onLoginFacebookClick()}
                                 >
                                     <Icon name="facebook" size={normalizeFont(4)} color={'#FFF'}/>
                                 </Button>
                                 <View style={{width: '4%'}}>
                                 </View>
-                                <Button full info style={{width: '48%', backgroundColor: '#c71610',height:normalize(40)}}
+                                <Button full info
+                                        style={{width: '48%', backgroundColor: '#c71610', height: normalize(40)}}
                                         onPress={this.signIn}
                                 >
                                     <Icon name="google-plus" size={normalizeFont(4)} color={'#FFF'}/>

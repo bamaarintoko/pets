@@ -192,7 +192,7 @@ let styles = {
     separatorContainer: {
         alignItems: 'center',
         flexDirection: 'row',
-        marginVertical: 8
+        marginVertical: 1
     },
     separatorLine: {
         flex: 1,
@@ -202,7 +202,7 @@ let styles = {
     },
     separatorOr: {
         color: '#FFFFFF',
-        marginHorizontal: 8,
+        marginHorizontal: 1,
         fontSize: 12
     },
 };
