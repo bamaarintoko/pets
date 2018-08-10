@@ -8,6 +8,7 @@ import Snackbar from 'react-native-snackbar';
 import Spinner from 'react-native-spinkit';
 import Modal from 'react-native-modalbox';
 import md5 from 'crypto-js/md5';
+import {normalizeFont} from "../../Utils/func";
 
 const errors = {};
 let width_ = Dimensions.get('window').width;
@@ -18,18 +19,37 @@ class ScreenRegister extends Component {
         super(props);
     }
 
-
+    onBack = ()=>{
+        return ()=>{
+            this.props.navigation.goBack()
+        }
+    }
     render() {
         console.log(Math.round(height))
         return (
             <Container style={{backgroundColor: '#FFF'}}>
-                <Content contentContainerStyle={{minHeight: height}}>
-                    <View style={{margin:10, marginTop: 50}}>
+                <View style={{height:60, backgroundColor:'#FFF',flexDirection:'row'}}>
+                    <View style={{flex: 1}}>
+                        <Button full transparent style={{height:60}} onPress={this.onBack()}>
+                            <Icon active name='arrow-left' size={normalizeFont(4)} color={'#000'}/>
+                        </Button>
+                    </View>
+                    <View style={{flex: 4, backgroundColor:'#FFF'}}>
+
+                    </View>
+                    <View style={{flex: 1}}>
+                        <Button full transparent style={{height:60}}>
+                            <Icon active name='check' size={normalizeFont(4)} color={'#000'}/>
+                        </Button>
+                    </View>
+                </View>
+                <Content contentContainerStyle={{minHeight: height-60}}>
+                    <View style={{marginLeft:20}}>
                         <Text style={{fontSize:34, fontWeight: 'bold'}}>
                             New Account
                         </Text>
                     </View>
-                    <View style={{flexDirection: 'row', alignItems: 'center',margin: 10}}>
+                    <View style={{flexDirection: 'row', alignItems: 'center',margin: 20}}>
                         <View style={{
                             height: 85,
                             width: 85,
@@ -48,7 +68,7 @@ class ScreenRegister extends Component {
                         </View>
                     </View>
                     <View>
-                        <Form style={{marginRight:10}}>
+                        <Form style={{marginRight:20, marginLeft:10}}>
                             <Item stackedLabel style={{height:40}}>
                                 <Label>Email</Label>
                                 <Input />
